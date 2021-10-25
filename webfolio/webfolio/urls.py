@@ -17,11 +17,17 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 
-def project(request):
+
+def projects(request):
     return HttpResponse('Here are our projects')
+
+
+def project(request):
+    return HttpResponse('Here are our project')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', project, name="projects"),
+    path('projects/', projects, name="projects"),
+    path('project/', project, name="project"),
 ]
