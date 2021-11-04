@@ -1,6 +1,23 @@
-{% extends 'main.html' %} {% block content %} {{message}}
+{% extends 'main.html' %} {% block content %}
+
+<p>Hello you are on the {{page}} page</p>
+
+{%if number > 10 %}
+<p>Number is greater than 10</p>
+{%else%}
+<p>Number is less than 10</p>
+{% endif %}
 
 <h1>Projects templates</h1>
-<p>{% lorem 5 b random %}</p>
+<p>{% lorem 1 b random %}</p>
 
+<hr />
+<h1>Projects</h1>
+
+<ul>
+  {%for project in projects%}
+  <li>Name: <a href="/project/{{project.id}}">{{project.title}}</a></li>
+
+  {% endfor%}
+</ul>
 {% endblock content %}
